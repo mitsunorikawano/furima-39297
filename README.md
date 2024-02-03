@@ -1,24 +1,74 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# テーブル設計
 
-Things you may want to cover:
+## users テーブル
 
-* Ruby version
+| Column             | Type   | Options     |
+| ------------------ | ------ | ----------- |
+| name               | string | null: false, unique: true |
+| email              | string | null: false |
+| password           | string | null: false |
+| first-name         | text | null: false |
+| last-name          | text | null: false |
+| first-name-kana    | text | null: false |
+| last-name-kana     | text | null: false |
+| birth-date         | text | null: false |
 
-* System dependencies
+### Association
 
-* Configuration
+- has_many :items
 
-* Database creation
 
-* Database initialization
+## items テーブル
 
-* How to run the test suite
+| Column    | Type   | Options     |
+| --------  | ------ | ----------- |
+| name      | string | null: false |
+| categry   | string | null: false |
+| condition | string | null: false |
+| price     | string | null: false |
+| postsge   | string | null: false |
+| image     | string | null: false |
+| info      | string | null: false |
+| prefectur | string | null: false |
+| delivery  | string | null: false |
+| comment   | text | null: false |
+| user      | references | null: false, foreign_key: true |
+| purchase  | references | null: false, foreign_key: true |
+| shipping  | references | null: false, foreign_key: true |
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+### Association
 
-* ...
+- belongs_to :user
+- belongs_to :purchase
+- belongs_to :shipping
+
+## purchases テーブル
+
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| name   | string     | null: false                    |
+| date   | string     | null: false
+| user   | references | null: false, foreign_key: true |
+| item   | references | null: false, foreign_key: true |
+
+### Association
+
+- has_many :items
+- has_many :shipping
+
+## shipping テーブル
+
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| content | text       | null: false                    |
+| user    | references | null: false, foreign_key: true |
+| item    | references | null: false, foreign_key: true |
+| purchase| references | null: false, foreign_key: true |
+
+### Association
+
+- has_many :items
+- belongs_to :purchases
