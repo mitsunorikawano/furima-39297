@@ -26,10 +26,10 @@
 | --------   | ------ | ----------- |
 | name       | string | null: false |
 | categry_id | integer | null: false |
-| condition  | string | null: false |
+| condition_id | integer | null: false |
 | price      | integer | null: false |
 | postsge_id | integer | null: false |
-| info       | string | null: false |
+| info       | text | null: false |
 | prefectur_id | integer | null: false |
 | delivery_id  | integer | null: false |
 | user      | references | null: false, foreign_key: true |
@@ -39,7 +39,6 @@
 
 - belongs_to :user
 - has_one :purchase
-- belongs_to :shipping
 
 ## purchases テーブル
 
@@ -52,7 +51,7 @@
 
 - belongs_to :user
   belongs_to :item
-- has_one :shippings
+- has_one :shipping
   
 
 ## shippings テーブル
@@ -60,7 +59,7 @@
 | Column      |    Type    | Options                        |
 | -------     | ---------- | ------------------------------ |
 | postal_code | string     | null: false                    |
-| prefecture_id | intege   | null: false                    |
+| prefecture_id | integer   | null: false                    |
 | city        | string     | null: false                    |
 | addresse    | string     | null: false                    |
 | buildig     | string     |                                |
