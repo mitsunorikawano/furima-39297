@@ -25,12 +25,12 @@
 | Column     | Type   | Options     |
 | --------   | ------ | ----------- |
 | name       | string | null: false |
-| categry_id | integer | null: false |
+| category_id | integer | null: false |
 | condition_id | integer | null: false |
 | price      | integer | null: false |
-| postsge_id | integer | null: false |
+| postage_id | integer | null: false |
 | info       | text | null: false |
-| prefectur_id | integer | null: false |
+| prefecture_id | integer | null: false |
 | delivery_id  | integer | null: false |
 | user      | references | null: false, foreign_key: true |
 
@@ -61,8 +61,8 @@
 | postal_code | string     | null: false                    |
 | prefecture_id | integer   | null: false                    |
 | city        | string     | null: false                    |
-| addresse    | string     | null: false                    |
-| buildig     | string     |                                |
+| address    | string     | null: false                    |
+| building     | string     |                                |
 | phone_number | string    | null: false                    |
 | purchase    | references | null: false, foreign_key: true |
 
